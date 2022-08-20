@@ -1,7 +1,6 @@
 from xml.etree.ElementTree import tostring
 from flask import Flask, request, render_template
 from flask_cors import cross_origin
-import sklearn
 import pickle
 import pandas as pd
 #from ipynb.fs.full.my_functions import give_recomen
