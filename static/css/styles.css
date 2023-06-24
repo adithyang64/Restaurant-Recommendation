@@ -33,3 +33,13 @@ a:hover {
 .checked {
     color: orange;
   }
+
+.error-container {
+    
+    color: #ff0000;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
