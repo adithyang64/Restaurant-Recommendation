@@ -40,52 +40,59 @@ def get_ip2():
 def predict():
     if request.method == "POST":
         # query_index = 20
-        query_index = get_ip()
+        try:
+            query_index = get_ip()
+        
+            
 
-        distances, indices = modelknn.kneighbors(user_rtng_pvt.iloc[query_index,:].values.reshape(1, -1), n_neighbors = 6)
-        user_rtng_pvt.iloc[query_index,:].values.reshape(1,-1)
+            distances, indices = modelknn.kneighbors(user_rtng_pvt.iloc[query_index,:].values.reshape(1, -1), n_neighbors = 6)
+            user_rtng_pvt.iloc[query_index,:].values.reshape(1,-1)
 
-        str_new=[]
-        str2_wa=[]
-        for i in range(0, len(distances.flatten())):
-            if i == 0:
-                str=user_rtng_pvt.index[query_index]
-                print("YOU HAVE SELECTED - ",str)
-                # print(model)
-            else:
-                str1 = user_rtng_pvt.index[indices.flatten()[i]]
-                print(i,".", str1)
-                str2=rating_vendor['weighted_average'].iloc[model_indices[str1]]
-                str2_wa.append(str2)
-                str_new.append(str1)
+            str_new=[]
+            str2_wa=[]
+            for i in range(0, len(distances.flatten())):
+                if i == 0:
+                    str=user_rtng_pvt.index[query_index]
+                    print("YOU HAVE SELECTED - ",str)
+                    # print(model)
+                else:
+                    str1 = user_rtng_pvt.index[indices.flatten()[i]]
+                    print(i,".", str1)
+                    str2=rating_vendor['weighted_average'].iloc[model_indices[str1]]
+                    str2_wa.append(str2)
+                    str_new.append(str1)
 
-        output = dict() 
-        for index,value in enumerate(str_new):
-            output[index+1] = value
-        print(output)
+            output = dict() 
+            for index,value in enumerate(str_new):
+                output[index+1] = value
+            print(output)
 
-        # Content based Recommendation
+            # Content based Recommendation
 
-        def give_rec(title, sig=sigmoid):
-            # Get the index corresponding to vendor
-            print(title)
-            idx = model_indices_vendor_srtd[title]
-            #idx = model_indices1['GREENPOINT HEIGHTS']
-            print(idx)
-            # Get the pairwsie similarity scores 
-            sig_scores = list(enumerate(sig[idx]))
+            def give_rec(title, sig=sigmoid):
+                # Get the index corresponding to vendor
+                print(title)
+                idx = model_indices_vendor_srtd[title]
+                #idx = model_indices1['GREENPOINT HEIGHTS']
+                print(idx)
+                # Get the pairwsie similarity scores 
+                sig_scores = list(enumerate(sig[idx]))
 
-            # Sort the vendors 
-            sig_scores = sorted(sig_scores, key=lambda x: x[1], reverse=True)
+                # Sort the vendors 
+                sig_scores = sorted(sig_scores, key=lambda x: x[1], reverse=True)
 
-            # Scores of the 5 most similar movies
-            sig_scores = sig_scores[1:6]
+                # Scores of the 5 most similar movies
+                sig_scores = sig_scores[1:6]
 
-            # Vendor indices
-            vendor_indices = [i[0] for i in sig_scores]
+                # Vendor indices
+                vendor_indices = [i[0] for i in sig_scores]
 
-            # Top 5 most similar vendors
-            return vendors['vendor_name'].iloc[vendor_indices]
+                # Top 5 most similar vendors
+                return vendors['vendor_name'].iloc[vendor_indices]
+        except:
+            return render_template("error.html")
+
+
 
         query_index2=get_ip2()
         op= give_rec(query_index2)
@@ -133,6 +140,9 @@ def predict():
         wa_9=str8_wa,
         wa_10=str9_wa,
         )
+
+            
+
 
 
     return render_template("home.html")
