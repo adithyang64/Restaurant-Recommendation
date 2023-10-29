@@ -54,6 +54,7 @@ With Help of Above Techniques, "**.pkl**" Files were developed and the same was 
 
 -> Method #4 - Based on Restaurant Type (Content Based)  
 
+###
 
 Run the below command to launch the App
 ```
