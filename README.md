@@ -12,7 +12,7 @@ Further, Docker Image was created using which the Website could be lauched & use
 
 **1. Data Integration:**
 
-Initially, Data Source is from three separate CSV files. They were integrated into a single dataframe, making it a centralized source for further analysis.
+Initially, Data Source is from three separate CSV files (Orders,Vendors,Vendor_Name). They were integrated into a single dataframe, making it a centralized source for further analysis.
 
 **2. Data Cleaning:**
 
