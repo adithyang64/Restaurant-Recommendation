@@ -1,6 +1,6 @@
 # Restaurant-Recommendation
 
-##Overview:
+## Overview:
 
 This Repo deals with a comprehensive restaurant recommendation system that encompasses data merging, cleaning, exploratory data analysis (EDA), and various recommendation techniques. The goal of this project is to provide personalized restaurant recommendations to users based on their preferences and historical data.
 
@@ -8,7 +8,7 @@ Moreover, a WebPage was Developed with help of Flask to Get the Recommendation S
 
 Further, Docker Image was created using which the Website could be lauched & used.
 
-##Techincal Details :
+## Techincal Details :
 
 **1. Data Integration:**
 
@@ -26,7 +26,7 @@ EDA was conducted to gain insights into the dataset and visualize patterns.
 Utilized various visualization techniques to understand data distributions and relationships.
 Explored statistical properties and anomalies within the data.
 
-##Recommendation Techniques:
+## Recommendation Techniques:
 
 **1. Weighted Average Recommendation:**
 
