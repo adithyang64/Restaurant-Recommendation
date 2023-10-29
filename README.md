@@ -48,7 +48,9 @@ Content-based recommendations are made based on the type of food that a restaura
 
 ### Note: 
 
-With Help of Above Techniques, "**.pkl**" Files were developed and the same was used to provide Results based on Method #2 - Based on User's Choice (Correlation Based) & Method #4 - Based on Restaurant Type (Content Based)  for the inputs from the webpage by the user.
+With Help of Above Techniques, "**.pkl**" Files were developed and the same was used to provide Results based on following methods for the inputs from the webpage by the user: 
+-> Method #2 - Based on User's Choice (Correlation Based) 
+-> Method #4 - Based on Restaurant Type (Content Based)  
 
 
 Run the below command to launch the App
